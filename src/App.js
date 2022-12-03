@@ -11,6 +11,8 @@ import SignUp from "./components/SignUp/SignUp";
 import Shipping from "./components/Shipping/Shipping";
 import PrivateRoute from "./components/routes/PrivateRoute";
 import Home from "./components/Home/Home/Home";
+import AddProduct from "./components/AddProduct/AddProduct";
+import AddProductComponent from "./components/AddProductComponent/AddProductComponet";
 
 function App() {
   const router = createBrowserRouter([
@@ -18,30 +20,38 @@ function App() {
       path: "/",
       element: <Main></Main>,
       children: [
-        // {
-        //   path: "/",
-        //   // loader: () => fetch("https://ema-john-simple-simple-server.vercel.app/products"),
-        //   element: <Home></Home>,
-        // },
+        {
+          path: "/",
+          // loader: () => fetch("https://ema-john-simple-simple-server.vercel.app/products"),
+          element: <Home></Home>,
+        },
 
         {
           path: "/orders",
           loader: productsAndCartLoader,
           element: <Orders></Orders>,
         },
-        {
-          path: "/inventory",
-          element: (
-            <PrivateRoute>
-              <Inventory></Inventory>
-            </PrivateRoute>
-          ),
-        },
+        // {
+        //   path: "/inventory",
+        //   element: (
+        //     <PrivateRoute>
+        //       <Inventory></Inventory>
+        //     </PrivateRoute>
+        //   ),
+        // },
         {
           path: "/shipping",
           element: (
             <PrivateRoute>
               <Shipping></Shipping>
+            </PrivateRoute>
+          ),
+        },
+        {
+          path: "/addProduct",
+          element: (
+            <PrivateRoute>
+              <AddProduct></AddProduct>
             </PrivateRoute>
           ),
         },
@@ -65,6 +75,26 @@ function App() {
         {
           path: "/signup",
           element: <SignUp></SignUp>,
+        },
+      ],
+    },
+    // addProduct
+    {
+      path: "/addProduct",
+      element: (
+        <PrivateRoute>
+          <AddProductComponent></AddProductComponent>
+        </PrivateRoute>
+      ),
+
+      children: [
+        {
+          path: "/addProduct",
+          element: (
+            <PrivateRoute>
+              <AddProduct></AddProduct>
+            </PrivateRoute>
+          ),
         },
       ],
     },

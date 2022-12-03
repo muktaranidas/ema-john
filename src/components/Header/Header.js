@@ -8,12 +8,13 @@ const Header = () => {
   const { user, logOut } = useContext(AuthContext);
   return (
     <nav className="header">
-      <img src={logo} alt="" />
+      <h1 className="text-3xl text-white font-bold">Gadget Grabber</h1>
       <div>
         <Link to="/home">Home</Link>
         <Link to="/shop">Shop</Link>
+        <Link to="/addProduct">AddProduct</Link>
         <Link to="/orders">Orders</Link>
-        <Link to="/inventory">Inventory</Link>
+        {/* <Link to="/inventory">Inventory</Link> */}
         {/* <Link to="/shipping">shipping</Link> */}
         <Link to="/about">About</Link>
         {user?.email ? (

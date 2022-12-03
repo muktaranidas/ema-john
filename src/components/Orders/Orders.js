@@ -31,7 +31,7 @@ const Orders = () => {
         ))}
         {cart.length === 0 && (
           <h2>
-            No Items for Review. Please <Link to="/">Shop more</Link>
+            No Items for Review. Please <Link to="/shop">Shop more</Link>
           </h2>
         )}
       </div>
